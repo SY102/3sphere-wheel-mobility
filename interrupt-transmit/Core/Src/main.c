@@ -82,13 +82,6 @@ uint8_t payload[6];
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
-void MX_GPIO_Init(void);
-void MX_DMA_Init(void);
-void MX_ADC1_Init(void);
-void MX_SPI1_Init(void);
-void MX_USART2_UART_Init(void);
-void MX_TIM2_Init(void);
-
 /* USER CODE BEGIN PFP */
 /* USER CODE END PFP */
 
@@ -150,6 +143,7 @@ HAL_TIM_Base_Start_IT(&htim2);
 
 nrf24_init();
 nrf24_transmitter_setup();
+
 
   /* USER CODE END 2 */
 
@@ -286,7 +280,8 @@ void transmit_sensor_data(void){
 	//최종 데이터 발송
 	nrf24_transmit(payload, 6);
 
-	//uart디버깅
+
+
 	char dbg[64];
 	int dlen = snprintf(dbg, sizeof(dbg), "X: %u | Y: %u | Z: %u\r\n", x, y, z);
 	HAL_UART_Transmit(&huart2, (uint8_t*)dbg, dlen, 100);
