@@ -1,0 +1,2 @@
+../Core/Src/stm32f1xx_hal_msp.c:58:6:HAL_ADC_MspInit	3
+../Core/Src/stm32f1xx_hal_msp.c:103:6:HAL_MspInit	1
